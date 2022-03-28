@@ -35,9 +35,9 @@ stage('Deploy')
 }	
 
 
-node('master'){
+node('Built-In Node'){
     
-    node('Slave 1'){
+    node('slave'){
 		stage('Build')
 		{
 			echo 'this is node in stage Slave 1'
