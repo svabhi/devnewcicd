@@ -6,10 +6,16 @@ node (){
 					numToKeepStr: '1'
 				)
 			)
-		],
-        [
+		]
+	)
+    properties(
+		[
+			pipelineTriggers(
+				[
 					pollSCM('* * * * *')
 				]
+			),
+		]
 	)
 	
 	stage('Build'){
