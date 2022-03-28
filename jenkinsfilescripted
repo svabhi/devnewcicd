@@ -1,46 +1,15 @@
-
 node{
-    echo 'this is scripted pipeline'
-}
-
-
-
-node{
-    
-    stage('Build')
-    {
-        echo 'this is scripted pipeline with stage'
-    }
-}
-
-
-node{
-	stage('Build')
-	{
-		node {
-			echo 'this is node in stage'
-		}
-	}
-}
-
-
-stage('Build')
-{
-	echo 'this is scripted pipeline with stage Build'
-}
+	properties(
+		[
+			buildDiscarder(
+				logRotator(
+					numToKeepStr: '1'
+				)
+			)
+		]
+	)
 	
-stage('Deploy')
-{
-	echo 'this is scripted pipeline with stage Deploy'
-}	
-
-
-node('Built-In Node'){
-    
-    node('slave'){
-		stage('Build')
-		{
-			echo 'this is node in stage Slave 1'
-		}
-    }
+	stage('Build'){
+		echo 'Hello World'
+	}
 }
