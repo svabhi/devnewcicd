@@ -1,4 +1,4 @@
-node (label: 'slave'){
+node (label: 'Built-In Node'){
 	properties(
 		[
 			buildDiscarder(
