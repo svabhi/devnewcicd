@@ -1,6 +1,8 @@
 node{
 	def name="jeff"
 	def isGroovyCool = false
+	parameters {							
+        string(name: 'environment', defaultValue: 'production', description: 'Environment to build for (Valid values: Dev, Test, Prod)')
     withEnv(['DEPLOY_TO=production']) {
         stage('Build') {
 		
