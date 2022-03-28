@@ -1,14 +1,5 @@
-node (){
+node{	
 	properties(
-		[
-			buildDiscarder(
-				logRotator(
-					numToKeepStr: '1'
-				)
-			)
-		]
-	)
-    properties(
 		[
 			pipelineTriggers(
 				[
@@ -17,8 +8,10 @@ node (){
 			),
 		]
 	)
-	
-	stage('Build'){
-		echo 'Hello World'
-	}
+        stage('Build') {				
+			checkout([$class: 'GitSCM', 				
+			branches: [[name: "origin/main"]], 
+			userRemoteConfigs: [[
+			url: 'https://github.com/svabhi/devnewcicd.git']]])
+        }		
 }
