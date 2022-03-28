@@ -13,3 +13,14 @@ node (label: 'Built-In Node'){
 		echo 'Hello World'
 	}
 }
+
+def jenkins = Jenkins.instance
+def computers = jenkins.computers
+computers.each {
+   //  println "${it.displayName} ${it.hostName}"
+}
+
+def labels = jenkins.getLabels()
+labels.each {
+   println "${it.displayName}"
+}
