@@ -13,6 +13,10 @@ node{
 			branches: [[name: "origin/main"]], 
 			userRemoteConfigs: [[
 			url: 'https://github.com/svabhi/devnewcicd.git']]])
-            
+
         }		
+
+        stage('approve') {
+            input 'approve or not'
+        }
 }
